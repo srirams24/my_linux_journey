@@ -1,0 +1,1213 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://sitename.example/py4e/Ch1/">
+      
+      
+        <link rel="prev" href="../../RHEL/Into%20The%20terminal/161.%20%20Network%20data%20transfer%20basics%2C%20including%20rsync/">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
+    
+    
+      
+        <title>Ch1 - My Linux Journey</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e53b48f4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#python-why-learn-programming" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="My Linux Journey" class="md-header__button md-logo" aria-label="My Linux Journey" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Linux Journey
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Ch1
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="deep-purple"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="deep-orange"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="My Linux Journey" class="md-nav__button md-logo" aria-label="My Linux Journey" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    My Linux Journey
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Welcome to MkDocs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+     Operating Systems Course for Beginners 
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+             Operating Systems Course for Beginners 
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Part 1: Introduction and Background
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Part 1: Introduction and Background
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%20Operating%20Systems%20Course%20for%20Beginners%20/Part%201%3A%20Introduction%20and%20Background/1.%20Introduction%20to%20Operating%20Systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1. Introduction to Operating Systems
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%20Operating%20Systems%20Course%20for%20Beginners%20/Part%201%3A%20Introduction%20and%20Background/2.%20Multiprogramming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2. Multiprogramming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%20Operating%20Systems%20Course%20for%20Beginners%20/Part%201%3A%20Introduction%20and%20Background/3.%20OS%20modes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3. OS modes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Ansible for Devops
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Ansible for Devops
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Ansible%20for%20Devops/1.%20Getting%20Started%20with%20Ansible/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1. Getting Started with Ansible
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Ansible%20for%20Devops/2.%20Local%20Infrastructure%20Development%3A%20Ansible%20and%20Vagrant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2. Local Infrastructure Development: Ansible and Vagrant
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    CS   CC
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            CS   CC
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CS%20-%20CC/1.Early%20Computing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.Early Computing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Intro to Linux
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Intro to Linux
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Ch1. The Linux Foundation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            Ch1. The Linux Foundation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Intro%20to%20Linux/Ch1.%20The%20Linux%20Foundation/1.1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    RHEL
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            RHEL
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Into The terminal
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            Into The terminal
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RHEL/Into%20The%20terminal/161.%20%20Network%20data%20transfer%20basics%2C%20including%20rsync/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    161.  Network data transfer basics, including rsync
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Py4e
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Py4e
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Ch1
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ch1
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧠 கம்ப்யூட்டர்ன்னா உங்க உதவியாளர்!
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      💡 புரோகிராமிங் ஏன் முக்கியம்?
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧠 கம்ப்யூட்டர்ன்னா உங்க உதவியாளர்!
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      💡 புரோகிராமிங் ஏன் முக்கியம்?
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p>உங்கள் கேள்விக்கு ஏற்றவாறு, கொடுக்கப்பட்ட தகவல் மூலங்களை (sources) பயன்படுத்தி, எளிதில் புரியும் விதத்தில், பேச்சுத்தமிழ் நடையில் குறிப்புகள் (Notes) இங்கே கொடுக்கப்பட்டுள்ளன.</p>
+<hr />
+<h1 id="python-why-learn-programming">🐍 Python – புரோகிராமிங் கத்துக்கறது எதுக்கு? (Why Learn Programming?)</h1>
+<h2 id="_1">🧠 கம்ப்யூட்டர்ன்னா உங்க உதவியாளர்!</h2>
+<ul>
+<li>கம்ப்யூட்டர்கள், லேப்டாப்கள், செல்போன்கள் எல்லாமே நம்மளோட <strong>'பர்சனல் அசிஸ்டெண்ட்'</strong> (Personal Assistants) மாதிரிதான்.</li>
+<li>இந்த அசிஸ்டெண்ட்டுக்கு எப்பவும் ஒரே கேள்விதான்: <strong>"அடுத்து நான் என்ன செய்யணும்?"</strong> ("What would you like me to do next?").</li>
+<li>இந்த கேள்விக்குப் பதில் சொல்ல நீங்க கத்துக்க வேண்டிய மொழிதான் புரோகிராமிங்.</li>
+</ul>
+<h2 id="_2">💡 புரோகிராமிங் ஏன் முக்கியம்?</h2>
+<ul>
+<li><strong>சலிப்பான வேலையை ஒதுக்க:</strong> மனுஷங்க செய்யப் போர் அடிக்கிற, மனசைக் குழப்புற வேலைகளை கம்ப்யூட்டருக்குக் கொடுக்கலாம்.<ul>
+<li>உதாரணத்துக்கு, ஒரு பெரிய டெக்ஸ்ட்ல எந்த வார்த்தை எத்தனை வாட்டி வருதுன்னு எண்ணுறது மனுஷனுக்கு கஷ்டம்; ஆனா கம்ப்யூட்டருக்கு ரொம்ப ஈஸி.</li>
+</ul>
+</li>
+<li><strong>கிரியேட்டிவ் செயல்:</strong> புரோகிராம் எழுதுறது ரொம்ப ஆக்கப்பூர்வமான (creative) மற்றும் திருப்தி தரக்கூடிய விஷயம்.</li>
+<li><strong>பங்காளியா பார்க்கணும்:</strong> நீங்க உங்களோட கிரியேட்டிவிட்டி, யோசனைகளைக் (intuition) கொடுப்பீங்க; கம்ப்யூட்டர் போர் அடிக்கிற வேலையைப் பார்க்கும்.</li>
+</ul>
+<hr />
+<h1 id="hardware-architecture">⚙️ கம்ப்யூட்டரின் உள் கட்டமைப்பு (Hardware Architecture)</h1>
+<p>புரோகிராம் எழுதுறதுக்கு முன்னாடி கம்ப்யூட்டரோட முக்கியமான பாகங்களைப் பத்தி தெரிஞ்சுக்கணும்:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">பாகம் (Part)</th>
+<th style="text-align: left;">விளக்கம் (Explanation in Spoken Tamil)</th>
+<th style="text-align: left;">முக்கிய நோக்கம் (Key Function)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>CPU</strong> (Central Processing Unit)</td>
+<td style="text-align: left;">கம்ப்யூட்டரின் <strong>இதயம்</strong> (heart). ஒரு செகண்டுக்கு பில்லியன் கணக்கான வாட்டி "அடுத்து என்ன?"ன்னு கேட்டுக்கிட்டே இருக்கும்.</td>
+<td style="text-align: left;">புரோகிராம் கட்டளைகளைச் செயல்படுத்துவது.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Main Memory</strong> (முக்கிய நினைவகம்)</td>
+<td style="text-align: left;">CPU-க்குத் தேவைப்படும் தகவலை சீக்கிரமா சேமிக்கும். ஆனா, கம்ப்யூட்டரை ஆஃப் பண்ணா, தகவல் அழிந்துவிடும்.</td>
+<td style="text-align: left;">வேகமான தற்காலிக சேமிப்பு (Fast Temporary Storage).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Secondary Memory</strong> (துணை நினைவகம்)</td>
+<td style="text-align: left;">தகவலை <strong>நிரந்தரமா</strong> சேமிக்கும். பவர் இல்லாட்டியும் தகவல் இருக்கும். உதாரணங்கள்: டிஸ்க் ட்ரைவ்கள், USB ஃப்ளாஷ் மெமரி.</td>
+<td style="text-align: left;">நீண்ட கால சேமிப்பு (Long Term Storage) [8, 51c].</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Input/Output Devices</strong></td>
+<td style="text-align: left;">கம்ப்யூட்டரோட நம்ம பேச/உரையாட உதவுவது (Screen, Keyboard, Mouse).</td>
+<td style="text-align: left;">கம்ப்யூட்டருடன் தொடர்பு கொள்ள.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>உங்க வேலை:</strong> புரோகிராமரா நீங்கதான் CPU-க்கு "அடுத்து என்ன செய்யணும்?"ங்கிற கட்டளைகளை ஒரு புரோகிராமா (Program) எழுதி வைக்கணும்.</p>
+</blockquote>
+<hr />
+<h1 id="2-programmer-skills">📝 புரோகிராமரின் 2 முக்கிய திறன்கள் (Programmer Skills)</h1>
+<p>புரோகிராமரா ஆகணும்னா, உங்களுக்கு இரண்டு திறன்கள் அவசியம்:</p>
+<ol>
+<li><strong>மொழியை அறிதல் (Know the Language):</strong><ul>
+<li>Python-ன் வார்த்தைகள் (vocabulary) மற்றும் இலக்கணத்தை (grammar) கத்துக்கணும்.</li>
+</ul>
+</li>
+<li><strong>கதை சொல்லுதல் (Tell a Story):</strong><ul>
+<li>உங்க புரோகிராம்தான் 'கதை', நீங்க தீர்க்க நினைக்கிற பிரச்சனைதான் 'ஐடியா'. ஒரு பிரச்சனையை எப்படித் தீர்ப்பதுன்னு கட்டமைக்கத் தெரியணும்.</li>
+</ul>
+</li>
+</ol>
+<h2 id="python">🗣️ Python மொழியின் அடிப்படை</h2>
+<ul>
+<li><strong>Reserved Words:</strong> இதுதான் Python-ன் 'வார்த்தைகள்'. இவற்றுக்கு Python-ல் ஒரே ஒரு அர்த்தம் தான் உண்டு. உதாரணம்: <code>False</code>, <code>await</code>, <code>print</code>, <code>if</code>, <code>while</code>.</li>
+<li><strong>Variable (மாறி):</strong> நீங்க டேட்டாவை சேமிச்சு வைக்கப் பயன்படுத்துற பெயர்கள் (labels). இதுக்கு reserved words-ஐ பயன்படுத்தக் கூடாது.</li>
+<li><strong>முதல் வாக்கியம்:</strong> <code>print('Hello world!')</code> இது ஒரு <code>print</code> function-ஐப் பயன்படுத்தி, ஒரு ஸ்ட்ரிங்கை (string of text) பிரிண்ட் செய்கிறது.</li>
+</ul>
+<hr />
+<h1 id="interpreter-vs-compiler">🔁 Interpreter vs. Compiler</h1>
+<p>நாம் எழுதுவது <strong>High-level Language</strong> (மனிதர்கள் படிக்க எளிதானது). CPU-வுக்குப் புரியும் மொழி <strong>Machine Language</strong> (0 மற்றும் 1). இதை மாத்த <strong>Translators</strong> தேவை.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">வகை (Category)</th>
+<th style="text-align: left;">Interpreter (Python)</th>
+<th style="text-align: left;">Compiler</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>செயல்பாடு</strong></td>
+<td style="text-align: left;">புரோகிராமரின் மூலக் குறியீட்டை (source code) <strong>ஒரு வரியாகப்</strong> படித்து உடனே செயல்படுத்தும்.</td>
+<td style="text-align: left;">புரோகிராம் முழுவதையும் ஒரு ஃபைலாக எடுத்து, மொத்தமாக Machine Language-க்கு மாற்றி, பிறகு செயல்படுத்தும்.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>உதாரணம்</strong></td>
+<td style="text-align: left;">Python. <code>&gt;&gt;&gt;</code> (prompt) மூலமா நம்மகிட்ட உடனே பேசுறது இதுதான்.</td>
+<td style="text-align: left;"><code>.exe</code> அல்லது <code>.dll</code> ஃபைல்கள் (Windows-ல்).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>பேச்சுவார்த்தை</strong></td>
+<td style="text-align: left;">இது ஒரு இன்டராக்டிவ் உரையாடலுக்கு (interactive conversation) ஏற்றது.</td>
+<td style="text-align: left;">இதுக்கு மொத்த புரோகிராமும் தேவை.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="debugging">🐞 புரோகிராம் பிழைகள் மற்றும் Debugging</h1>
+<p>சின்ன தப்பு பண்ணினாலும் Python உங்க புரோகிராமை பார்க்காமலே விட்டுடும். Python ஒரு கருவிதான், அதற்கு உணர்ச்சிகள் இல்லை. அது உங்களை வெறுக்கவில்லை.</p>
+<h2 id="3-errors">3 வகையான பிழைகள் (Errors)</h2>
+<ol>
+<li><strong>Syntax Error (இலக்கணப் பிழை):</strong><ul>
+<li>Python-ன் இலக்கண விதிகளை மீறினால் வரும் பிழை.</li>
+<li>இதுதான் முதல்ல வரும், சரி செய்வது எளிது.</li>
+<li>உதாரணம்: <code>print</code>-க்குப் பதிலா <code>primt</code>ன்னு தப்பா டைப் பண்ணுவது.</li>
+</ul>
+</li>
+<li><strong>Logic Error (தர்க்கப் பிழை):</strong><ul>
+<li>புரோகிராமின் வாக்கியங்கள் சரியா இருக்கும், ஆனா அவற்றை வைக்கும் வரிசை (order) தவறா இருக்கும்.</li>
+</ul>
+</li>
+<li><strong>Semantic Error (பொருள் பிழை):</strong><ul>
+<li>எல்லாமே (இலக்கணம், வரிசை) சரியா இருக்கும், ஆனா நீங்க <strong>எதிர்பார்த்ததை</strong> புரோகிராம் செய்யாது. புரோகிராமர் நோக்கத்தில் தவறு.</li>
+</ul>
+</li>
+</ol>
+<h2 id="debugging_1">🔍 Debugging (பிழை திருத்தும் முறை)</h2>
+<p>பிழைக்கான காரணத்தைக் கண்டுபிடிக்கும் முறைக்குத்தான் <strong>Debugging</strong> என்று பெயர். ஒரு கடினமான பிழையை சரி செய்ய 4 விஷயங்களை முயற்சி செய்யலாம் (4 R’s):</p>
+<ol>
+<li><strong>Reading (வாசித்தல்):</strong> உங்க புரோகிராமை திரும்பத் திரும்ப சத்தமா படிச்சு, நீங்க எழுத நினைச்சதுதான் அங்க இருக்கான்னு பார்க்கணும்.</li>
+<li><strong>Running (ஓட்டிப் பார்த்தல்):</strong> சின்ன சின்ன மாற்றங்கள் செய்து, புரோகிராமின் வெவ்வேறு வெர்ஷன்களை ஓட்டி, பிரச்சனையை வெளிக்கொண்டு வரலாம்.</li>
+<li><strong>Ruminating (யோசித்தல்):</strong> போதுமான நேரம் எடுத்து, என்ன வகையான பிழை (syntax, logic, semantic) என்று சிந்தித்துப் பார்க்கணும்.</li>
+<li><strong>Retreating (பின்வாங்குதல்):</strong> சில சமயங்களில், வேலை செய்யாத கோடை அழித்துவிட்டு, வேலை செய்த பழைய புரோகிராமுக்குத் திரும்பிச் சென்று, திரும்ப புதிதாகக் கட்ட ஆரம்பிப்பது நல்லது.</li>
+</ol>
+<p>Exercises</p>
+<p>Exercise 1: What is the function of the secondary memory in a computer?</p>
+<p>a) Execute all of the computation and logic of the program
+b) Retrieve web pages over the Internet
+c) Store information for the long term, even beyond a power cycle
+d) Take input from the user</p>
+<p>Exercise 2: What is a program?</p>
+<p>Exercise 3: What is the difference between a compiler and an interpreter?</p>
+<p>Exercise 4: Which of the following contains “machine code”?</p>
+<p>a) The Python interpreter
+b) The keyboard
+c) Python source file
+d) A word processing document</p>
+<p>Exercise 5: What is wrong with the following code:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>primt 'Hello world!'
+File "<stdin>", line 1
+  primt 'Hello world!'
+                     ^
+SyntaxError: invalid syntax
+</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Exercise 6: Where in the computer is a variable such as “x” stored after the following Python line finishes?</p>
+<p>x = 123</p>
+<p>a) Central processing unit
+b) Main Memory
+c) Secondary Memory
+d) Input Devices
+e) Output Devices</p>
+<p>Exercise 7: What will the following program print out:</p>
+<p>x = 43
+x = x - 1
+print(x)</p>
+<p>a) 43
+b) 42
+c) x - 1
+d) Error because x = x - 1 is not possible mathematically</p>
+<p>Exercise 8: Explain each of the following using an example of a human capability: (1) Central processing unit, (2) Main Memory, (3) Secondary Memory, (4) Input Device, and (5) Output Device. For example, “What is the human equivalent to a Central Processing Unit”?</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>
